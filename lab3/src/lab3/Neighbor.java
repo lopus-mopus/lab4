@@ -7,12 +7,12 @@ import java.net.InetAddress;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.concurrent.BlockingQueue;
+//import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 //сосед
 public class Neighbor {
-    protected BlockingQueue<Message> messages = new LinkedBlockingQueue<>(Constants.QUEUE_MAX_CAPACITY);
+    protected LinkedBlockingQueue<Message> messages = new LinkedBlockingQueue<>(Constants.QUEUE_MAX_CAPACITY);
 
     public Message deadMessage = null;
 

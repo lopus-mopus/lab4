@@ -92,13 +92,13 @@ public class Node {
                 if (!ackDeadChildMsg) {
                     parent.sendDeadChildMsg(socket, nodeName);
                 }
-
+//отсылает сообщения всем и в первую очередь родителю
                 for (Map.Entry<String, Child> child : children.entrySet()) {
                     if (ackDeadParentMsg.contains(child.getKey())) {
                         child.getValue().sendDeadParentMsg(socket, nodeName, parent.ip(), parent.port());
                     }
                 }
-
+//получаем подтверждение что сообщение всем доставлено
                 recvAcks();
             } else {
                 for (Map.Entry<String, Child> child : children.entrySet()) {
@@ -117,7 +117,7 @@ public class Node {
                         port = child.getValue().port();
                         choseParent = true;
                     }
-
+//если родителя нет то новым р становится 1 насл
                     recvAcks();
                 }
             }

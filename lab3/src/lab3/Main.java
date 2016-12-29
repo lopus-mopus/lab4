@@ -32,9 +32,20 @@ public class Main {
             System.out.println(ex.getMessage());
             return;
         }
-
+        
         UI ui = new UI(node);
         node.setUI(ui);
+        Runtime.getRuntime().addShutdownHook(new Thread()
+        {
+            @Override
+            public void run()
+            {
+            	ui.stop();
+                System.out.println("close win!");
+            }
+        });
+        
+        
         ui.start();
     }
 }

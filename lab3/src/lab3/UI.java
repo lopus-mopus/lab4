@@ -27,6 +27,7 @@ public class UI {
 
             try {
                 this.node.stopCommunicate();
+                System.out.println("111");
             } catch (IOException ex){
                 System.out.println(ex.getMessage());
             }
@@ -37,6 +38,10 @@ public class UI {
         System.out.println(msg);
     }
 
+    public void stop() {
+    	netThread.interrupt();
+    }
+    
     public void start(){
         netThread.start();
         String userMessage = null;
